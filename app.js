@@ -6,10 +6,12 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 8000;
 const morgan = require('morgan');
+const drinker =require('./routes/drinker')
 
 app.use(cors())
 app.use(morgan('short'));
 app.use(bodyParser.json());
+app.use(drinker);
 
 app.use((_req, res) => {
     res.sendStatus(404);
